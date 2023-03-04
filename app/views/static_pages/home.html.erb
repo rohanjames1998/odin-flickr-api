@@ -1,6 +1,16 @@
+<h1>Get Flickr Photos Using User ID</h1>
 <%= form_for :flickr, url: "static_pages/home", method: :get do |f| %>
   <%= f.label :user_id, "ID:"%>
-  <%= f.text_field :user_id %>
+  <%= f.text_field :user_id, value: "197785214@N05" %>
   <%= f.submit "Submit" %>
+<% end %>
+
+<% if @photos.present? %>
+  <% @photos.each do |photo| %>
+    <div>
+    <h2> <%= photo.title %> </h2>
+      <%= image_tag "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}.jpg"%>
+    </div>
+  <% end %>
 <% end %>
 
