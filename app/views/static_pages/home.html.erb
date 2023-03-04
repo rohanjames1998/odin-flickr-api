@@ -1,2 +1,6 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<%= form_for :flickr, url: "static_pages/home", method: :get do |f| %>
+  <%= f.label :user_id, "ID:"%>
+  <%= f.text_field :user_id %>
+  <%= f.submit "Submit" %>
+<% end %>
+
